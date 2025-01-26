@@ -36,13 +36,15 @@ Hcxdumptool is a tool used for capturing WPA2 handshakes from wireless networks.
 ### Network Diagram
   ![image](https://github.com/user-attachments/assets/a699ef07-bd25-4ec1-a0e7-a55f4174e5aa)
 
-# WPA2 Attack and Cracking Script
-# This script captures and cracks WPA2 Wi-Fi traffic using hcxdumptool and Hashcat.
+### WPA2 Attack and Cracking Script
+#### This script captures and cracks WPA2 Wi-Fi traffic using hcxdumptool and Hashcat.
 
 #### Install Required Packages
+```bash
+
 sudo apt-get update
 sudo apt-get install -y libcurl4-openssl-dev libssl-dev pkg-config libpcap-dev
-
+```
 #### Clone the hcxdumptool Repository and Navigate to It
 git clone https://github.com/ZerBea/hcxdumptool.git
 cd hcxdumptool
