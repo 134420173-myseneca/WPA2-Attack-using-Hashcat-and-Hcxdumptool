@@ -46,26 +46,33 @@ sudo apt-get update
 sudo apt-get install -y libcurl4-openssl-dev libssl-dev pkg-config libpcap-dev
 ```
 #### Clone the hcxdumptool Repository and Navigate to It
+```bash
 git clone https://github.com/ZerBea/hcxdumptool.git
 cd hcxdumptool
-
+```
 #### Stop Network Management Services
+```bash
 sudo systemctl stop NetworkManager.service
 sudo systemctl stop wpa_supplicant.service
-
+```
 #### Capture Wi-Fi Traffic
+```bash
 sudo hcxdumptool -i wlan0 -w dumpfile.pcapng -F --rds=1
-
+```
 #### Restart Network Management Services After Capture
+```bash
 sudo systemctl start wpa_supplicant.service
 sudo systemctl start NetworkManager.service
-
+```
 #### Convert Captured Traffic to Hash File
+```bash
 hcxpcapngtool -o hash.hc22000 -E essidlist dumpfile.pcapng
-
+```
 #### Scan for MAC Addresses
+```bash
 sudo hcxdumptool -i wlan0 --rcascan=a
-
+```
 #### Crack Wi-Fi Hashes Using Hashcat
+```bash
 hashcat -m 22000 hash.hc22000 rockyou.txt --show
-
+```
