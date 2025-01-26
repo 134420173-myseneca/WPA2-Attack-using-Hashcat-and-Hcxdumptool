@@ -33,3 +33,6 @@ Hcxdumptool is a tool used for capturing WPA2 handshakes from wireless networks.
 - **Capture WPA2 Handshakes:** Captures the four-way handshake while the client is attempting to connect with the access point.
 - **De-Authentication Attacks:** Sends de-authentication packets to force clients to reconnect to the access point, initiating a handshake capture.
 - **Output Formats:** Saves the captured handshake in various formats, such as `.pcapng`, which can be converted for use in Hashcat.
+### Network Diagram
+  ![image](https://github.com/user-attachments/assets/a699ef07-bd25-4ec1-a0e7-a55f4174e5aa)
+
